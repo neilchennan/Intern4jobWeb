@@ -1,16 +1,27 @@
 ﻿<!DOCTYPE html>
 <html lang="zh">
-    <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <meta charset="utf-8" />
-        <title>@ViewBag.Title - 我的 ASP.NET MVC 应用程序</title>
-        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <meta name="viewport" content="width=device-width" />
-        @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")
-    </head>
-    <body>
-        <header>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>@ViewBag.Title - 实习职场秀</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @*@Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")*@
+    <link href="~/ThirdParty/bootstrap335/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/ThirdParty/bootstrap335/js/jquery.min.js"></script>
+    <script src="~/ThirdParty/bootstrap335/js/bootstrap.js"></script>
+    <script src="~/ThirdParty/jquery.bootstrap.min.js"></script>
+    <script src="~/UserScripts/Common.js"></script>
+    <link href="~/Content/Common.css" rel="stylesheet" />
+</head>
+<body>
+    @*<header>
             <div class="content-wrapper">
                 <div class="float-left">
                     <p class="site-title">@Html.ActionLink("将你的徽标放置在此处", "Index", "Home")</p>
@@ -44,6 +55,62 @@
         </footer>
 
         @Scripts.Render("~/bundles/jquery")
-        @RenderSection("scripts", required: false)
-    </body>
+        @RenderSection("scripts", required: false)*@
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">职场秀</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active">@Html.ActionLink("主页", "Index", "Home")</li>
+                    <li class="dropdown">
+                        <a href="Class/Index" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">行业 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">IT.互联网</a></li>
+                            <li><a href="#">金融</a></li>
+                            <li><a href="#">房地产</a></li>
+                            <li><a href="#">汽车.制造</a></li>
+                            <li><a href="#">消费品</a></li>
+                            <li><a href="#">医疗.化工</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="Position/Index" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">职位 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">搜索职位</a></li>
+                            <li><a href="#">我投递的职位</a></li>
+                            <li><a href="#">我收藏的职位</a></li>
+                            <li><a href="#">职位订阅器</a></li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("简历", "Index", "Personal")</li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+    <!-- /.container -->
+    @*<!-- Bootstrap core JavaScript
+        ================================================== -->
+            <!-- Placed at the end of the document so the pages load faster -->
+            <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+            <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+            <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+            <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>*@
+</body>
 </html>

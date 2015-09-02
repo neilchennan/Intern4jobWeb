@@ -1,4 +1,4 @@
-﻿@{
+﻿@*@{
     ViewBag.Title = "Home Page";
 }
 @section featured {
@@ -42,4 +42,63 @@
         and price for your applications.
         <a href="http://go.microsoft.com/fwlink/?LinkId=245157">Learn more…</a>
     </li>
-</ol>
+</ol>*@
+<script src="~/UserScripts/APIService.js"></script>
+<div class="panel panel-default">
+    <div class="jumbotron">
+        <div class="container">
+            <h1>欢迎进入梦想职场秀!</h1>
+            <p>这里有你梦寐以求进入的名企，在这里，实现你的理想，放飞你的青春！</p>
+            <p><a class="btn btn-primary btn-lg" href="#" role="button">看看都有哪些名企 &raquo;</a></p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="list-group" id="position_group_div">
+                        <a href="#" class="list-group-item">金融实习培训生</a>
+                        <a href="#" class="list-group-item">知名IT企业开发实习生</a>
+                        <a href="#" class="list-group-item">快速消费品市场部实习</a>
+                        <a href="#" class="list-group-item">Vestibulum at eros</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Panel title</h3>
+                </div>
+                <div class="panel-body">
+                    Panel content
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript">
+    var callbacks = {
+        onSuccess: function (Obj) {
+            var jsonObj = JSON.parse(Obj); //
+            alert(jsonObj.length);
+        }
+        , onFail: function (triggerButton) {
+            alert('fail');
+        }
+        //, onBeforeSend: function (flag) {
+        //    return checkValid(flag);
+        //}
+    };
+
+    $(function () {
+        var url = '@Url.Action("GetAllProfessions", "Service")';
+        //var params = { "obj": userObj };
+        var params = {  };
+        AjaxGetAction(url, params, callbacks.onSuccess, callbacks.onFail);
+    })
+
+</script>
